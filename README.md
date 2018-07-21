@@ -40,7 +40,7 @@ CSS also gets automatically built when running `lein build` and recompiled on ch
 ### Run application:
 
 ```
-lein dev
+lein figwheel dev
 ```
 
 Figwheel will automatically push cljs changes to the browser.

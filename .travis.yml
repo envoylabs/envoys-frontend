@@ -1,0 +1,5 @@
+language: clojure
+sudo: enabled
+lein: 2.8.1
+script: lein doo phantom test once
+after_success: lein build
