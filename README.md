@@ -23,6 +23,10 @@ Put this in your Emacs config file:
 
 Navigate to a clojurescript file and start a figwheel REPL with `cider-jack-in-clojurescript` or (`C-c M-J`)
 
+If you have issues with that and you're on OSX, it could be because you've launched Emacs as a Mac application. Try adding the following to your shell config and lauching it from inside the working directory:
+
+    alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+
 ### Compile css:
 
 Compile css file once.

@@ -1,0 +1,7 @@
+body {
+  color: #fdfdfd;
+}
+
+body nav a:hover {
+  text-decoration: none;
+}
