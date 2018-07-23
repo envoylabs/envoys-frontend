@@ -105,7 +105,7 @@
     [:p {:style {:font-weight "lighter"}}
      "We believe social skills are as important as engineering chops. We work hard to seamlessly integrate with and understand your culture and teams, enhancing them with a razor-sharp focus on delivering the right thing for your users."]
     [:p
-     "Serverless applications | Data Engineering | Application development"]]
+     "Serverless applications | Data Engineering | Application development | Blockchain"]]
    (footer)])
 
 ;; blog
