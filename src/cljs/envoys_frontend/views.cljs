@@ -71,7 +71,7 @@
              btn-target-path)
      [:p {:class "lead"}
       [:a {:href btn-target-path
-           :class "btn btn-lg btn-default"}
+           :class "btn btn-default"}
        btn-text]])])
 
 (defn footer []
@@ -89,7 +89,7 @@
   [:div 
    (nav)
    (hero-container {:title logo-as-html
-                    :hero-text "A functional-first engineering collective with a focus on doing things right, first time."
+                    :hero-text "A functional-first engineering collective that does things right, first time."
                     :btn-text "Learn more"
                     :btn-target-path "#/about"})
    (footer)])
@@ -100,7 +100,12 @@
   [:div 
    (nav)
    (hero-container {:title "About"
-                    :hero-text "We specialise in green-field and rapid prototyping work, from front-end and static MVPs to full-stack proof of concepts. Whether it's engineering, devops or business development, we can help with all areas of the project build and lifecycle."})
+                    :hero-text "We specialise in green-field and rapid prototyping, from static MVPs to full-stack apps and data systems. Whether it's engineering, devops or business development, we can help with all areas of the project lifecycle."})
+   [:div.inner {:style {"padding-top" "5px"}}
+    [:p {:style {:font-weight "lighter"}}
+     "We believe social skills are as important as engineering chops. We work hard to seamlessly integrate with and understand your culture and teams, enhancing them with a razor-sharp focus on delivering the right thing for your users."]
+    [:p
+     "Serverless applications | Data Engineering | Application development"]]
    (footer)])
 
 ;; blog
@@ -108,7 +113,7 @@
   [:div 
    (nav)
    (hero-container {:title "Blog"
-                    :hero-text "Find out about our latest projects here."})
+                    :hero-text "Under construction..."})
    (footer)])
 
 ;; contact
@@ -116,7 +121,7 @@
   [:div 
    (nav)
    (hero-container {:title "Contact us"
-                    :hero-text "For specific requirements, contact our CTO on alex@lynh.am; for more general queries, drop us a line at hello@envoys.io"})
+                    :hero-text "For general queries, drop us a line at hello@envoys.io. To discuss a project with our CTO, email alex@lynh.am"})
    (footer)])
 
 

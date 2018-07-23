@@ -1,7 +1,12 @@
 body {
   color: #fdfdfd;
+  background-color: #252525;
 }
 
 body nav a:hover {
   text-decoration: none;
+}
+
+body .btn-default:hover {
+  background-position: 0 -1px;
 }
