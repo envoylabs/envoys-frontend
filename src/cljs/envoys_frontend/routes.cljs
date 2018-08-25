@@ -35,3 +35,10 @@
 
   ;; --------------------
   (hook-browser-navigation!))
+
+;; here's our backend
+(def backend-mapping
+  {:home-panel "https://backend.envoys.io"
+   :about-panel "https://backend.envoys.io/about"
+   :blog-panel "https://backend.envoys.io/blog"
+   :contact-panel "https://backend.envoys.io/contact"})

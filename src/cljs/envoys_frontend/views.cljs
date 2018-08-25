@@ -59,20 +59,20 @@
         (generate-nav-list-items @active-panel)]]]]))
 
 (defn hero-container [{title :title
-                       hero-text :hero-text
                        btn-text :btn-text
                        btn-target-path :btn-target-path}]
-  [:div {:class "inner cover"}
-   [:h1 {:class "cover-heading"}
-    title]
-   [:p {:class "lead"}
-    hero-text]
-   (if (not= nil
-             btn-target-path)
+  (let [hero-text (re-frame/subscribe [::subs/hero-text])]
+    [:div {:class "inner cover"}
+     [:h1 {:class "cover-heading"}
+      title]
      [:p {:class "lead"}
-      [:a {:href btn-target-path
-           :class "btn btn-default"}
-       btn-text]])])
+      @hero-text]
+     (if (not= nil
+               btn-target-path)
+       [:p {:class "lead"}
+        [:a {:href btn-target-path
+             :class "btn btn-default"}
+         btn-text]])]))
 
 (defn footer []
   [:div {:class "mastfoot"}
@@ -89,7 +89,6 @@
   [:div 
    (nav)
    (hero-container {:title logo-as-html
-                    :hero-text "A functional-first engineering collective that does things right, first time."
                     :btn-text "Learn more"
                     :btn-target-path "#/about"})
    (footer)])
@@ -99,8 +98,7 @@
 (defn about-panel []
   [:div 
    (nav)
-   (hero-container {:title "About"
-                    :hero-text "We specialise in green-field and rapid prototyping, from static MVPs to full-stack apps and data systems. Whether it's engineering, devops or business development, we can help with all areas of the project lifecycle."})
+   (hero-container {:title "About"})
    [:div.inner {:style {"padding-top" "5px"}}
     [:p {:style {:font-weight "lighter"}}
      "We believe social skills are as important as engineering chops. We work hard to seamlessly integrate with and understand your culture and teams, enhancing them with a razor-sharp focus on delivering the right thing for your users."]
@@ -114,18 +112,22 @@
 (defn blog-panel []
   [:div 
    (nav)
-   (hero-container {:title "Blog"
-                    :hero-text "Under construction..."})
+   (hero-container {:title "Blog"})
    (footer)])
 
 ;; contact
 (defn contact-panel []
   [:div 
    (nav)
-   (hero-container {:title "Contact us"
-                    :hero-text "For general queries, drop us a line at hello@envoys.io. To discuss a project with our CTO, email alex@lynh.am"})
+   (hero-container {:title "Contact us"})
    (footer)])
 
+;; loading panel
+(defn loading-panel []
+  [:div
+   (nav)
+   (hero-container {:title "..."})
+   (footer)])
 
 ;; main
 (defn- panels [panel-name]
@@ -134,11 +136,15 @@
     :about-panel [about-panel]
     :blog-panel [blog-panel]
     :contact-panel [contact-panel]
+    :loading-panel [loading-panel]
     [:div]))
 
 (defn show-panel [panel-name]
   [panels panel-name])
 
 (defn main-panel []
-  (let [active-panel (re-frame/subscribe [::subs/active-panel])]
-    [show-panel @active-panel]))
+  (let [loading? (re-frame/subscribe [::subs/loading?])
+        active-panel (re-frame/subscribe [::subs/active-panel])]
+    (if @loading?
+      [show-panel :loading-panel]
+      [show-panel @active-panel])))

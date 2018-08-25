@@ -1,4 +1,5 @@
 (ns envoys-frontend.db)
 
 (def default-db
-  {:name "re-frame"})
+  {:hero-text "Loading..."
+   :loading? true})
