@@ -2,7 +2,7 @@
   (:require
    [re-frame.core :as re-frame]
    [envoys-frontend.db :as db]
-   [envoys-frontend.routes :as routes]
+   [envoys-frontend.backend :as backend]
    [day8.re-frame.tracing :refer-macros [fn-traced defn-traced]]
    [day8.re-frame.http-fx]
    [ajax.core :as ajax]
@@ -16,9 +16,10 @@
 (re-frame/reg-event-db
  ::set-active-panel
  (fn-traced [db [_ active-panel]]
-            (assoc db :loading? true)
-            (re-frame.core/dispatch [::set-page-contents active-panel])
-            (assoc db :active-panel active-panel)))
+            (do
+              (assoc db :loading? true)
+              (re-frame.core/dispatch [::set-page-contents active-panel])
+              (assoc db :active-panel active-panel))))
 
 (re-frame/reg-event-db
  ::init-backend
@@ -29,13 +30,13 @@
  (fn
   [{db :db} [_ active-panel]]
 
-  (let [endpoint (active-panel routes/backend-mapping)]
-    {:http-xhrio {:method :get
-                  :uri endpoint
-                  :format (ajax/json-request-format)
-                  :response-format (ajax/json-response-format {:keywords? true}) 
-                  :on-success [::handle-response]
-                  :on-failure [::handle-bad-response]}})))
+   (let [endpoint (backend/panel->route active-panel)]
+     {:http-xhrio {:method :get
+                   :uri endpoint
+                   :format (ajax/json-request-format)
+                   :response-format (ajax/json-response-format {:keywords? true}) 
+                   :on-success [::handle-response]
+                   :on-failure [::handle-bad-response]}})))
 
 (re-frame/reg-event-db                   
  ::handle-response             
