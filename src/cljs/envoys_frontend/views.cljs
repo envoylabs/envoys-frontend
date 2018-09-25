@@ -2,6 +2,7 @@
   (:require
    [re-frame.core :as re-frame]
    [envoys-frontend.subs :as subs]
+   [envoys-frontend.events :as events]
    [clojure.string :as string]))
 
 (def logo-as-html
@@ -115,12 +116,73 @@
    (hero-container {:title "Blog"})
    (footer)])
 
+(defn html-label [for-element-id text]
+  [:label {:for for-element-id} text])
+
+(defn collect-contact-form [])
+
+(defn contact-form [email-field message-field robots-field]
+  [:form
+
+   [:div.form-group
+    (html-label "your-email-input" "Contact Email Address")
+    [:input {:type "email"
+             :class "form-control"
+             :id "your-email-input"
+             :aria-describedby "email-help"
+             :placeholder "Enter your email..."
+             :value (if email-field
+                      email-field
+                      "")
+             :on-change #(re-frame/dispatch [::events/set-email-field-value (-> %
+                                                                                .-target
+                                                                                .-value)])}]
+    [:small {:id "email-help"
+             :class "form-text text-muted"}
+     "We'll never share your email with anyone else."]]
+
+   [:div.form-group
+    (html-label "contact-message" "Your message")
+    [:textarea {:class "form-control"
+                :id "contact-message"
+                :rows "3"
+                :placeholder "Enter your message. We'll get back to you as soon as we can!"
+                :value (if message-field
+                         message-field
+                         "")
+                :on-change #(re-frame/dispatch [::events/set-message-field-value (-> %
+                                                                                     .-target
+                                                                                     .-value)])}]]
+
+   [:div.form-group
+    (html-label "robot-check" "Robot check: what is 3 x 7?")
+    [:input {:type "text"
+             :class "form-control"
+             :id "robot-check"
+             :placeholder "42?"
+             :value (if robots-field
+                      robots-field
+                      "")
+             :on-change #(re-frame/dispatch [::events/set-robot-field-value (-> %
+                                                                                .-target
+                                                                                .-value)])}]]
+
+   [:a {:href "#/contact/create"
+             :class "btn btn-default"}
+         "Submit"]])
+
 ;; contact
 (defn contact-panel []
-  [:div 
-   (nav)
-   (hero-container {:title "Contact us"})
-   (footer)])
+  (let [email-field (re-frame/subscribe [::subs/email-field])
+        message-field (re-frame/subscribe [::subs/message-field])
+        robots-field (re-frame/subscribe [::subs/robots-field])]
+    [:div 
+     (nav)
+     ;;(hero-container {:title "Contact us"})
+     (contact-form @email-field
+                   @message-field
+                   @robots-field)
+     (footer)]))
 
 ;; loading panel
 (defn loading-panel []

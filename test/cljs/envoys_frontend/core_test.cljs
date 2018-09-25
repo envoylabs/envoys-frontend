@@ -23,6 +23,9 @@
     [:p [:a {:href "https://github.com/envoylabs", :target "_blank"} "Github"]]
     [:p "Copyright 2018"]]])
 
+(def expected-label
+  [:label {:for "foo-element"} "Label text"])
+
 ;; instead of a partial
 (def element-content #(nth % 2))
 
@@ -53,6 +56,11 @@
                 element-content)
             "test content")))))
 
+(deftest label-test
+  (testing "label"
+    (is (= (views/html-label "foo-element" "Label text")
+           expected-label))))
+
 (deftest footer-test
   (testing "footer"
     (is (= (-> (views/footer)
@@ -66,3 +74,4 @@
    (testing "show panel"
      (is (= (first (views/show-panel :contact-panel))
             "test")))))
+

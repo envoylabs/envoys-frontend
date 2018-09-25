@@ -38,6 +38,29 @@
                    :on-success [::handle-response]
                    :on-failure [::handle-bad-response]}})))
 
+(re-frame/reg-event-fx
+ ::send-contact-form
+ (fn
+   [{db :db} [_ query-params]]
+   (let [endpoint (backend/panel->route :contact-form)
+         email (get db :email-field)
+         message (get db :message-field)
+         robots-check (-> (get db :robots-field)
+                          js/parseInt)
+         data (->> {:email email
+                    :message message
+                    :robots-check robots-check}
+                   clj->js
+                   (.stringify js/JSON))
+         _ (js/console.log data)]
+     {:http-xhrio {:method :post
+                   :uri endpoint
+                   :body data
+                   :format (ajax/json-request-format)
+                   :response-format (ajax/json-response-format {:keywords? true}) 
+                   :on-success [::handle-response]
+                   :on-failure [::handle-bad-response]}})))
+
 (re-frame/reg-event-db                   
  ::handle-response             
  (fn-traced
@@ -53,4 +76,22 @@
   (-> db
       (assoc :loading? false)
       (assoc :hero-text "Envoys: at the bleeding edge of technology."))))
+
+(re-frame/reg-event-db
+ ::set-email-field-value
+ (fn-traced
+  [db [_ value]]
+  (assoc db :email-field value)))
+
+(re-frame/reg-event-db
+ ::set-message-field-value
+ (fn-traced
+  [db [_ value]]
+  (assoc db :message-field value)))
+
+(re-frame/reg-event-db
+ ::set-robot-field-value
+ (fn-traced
+  [db [_ value]]
+  (assoc db :robots-field value)))
 

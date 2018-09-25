@@ -33,6 +33,8 @@
   (defroute "/contact" []
     (re-frame/dispatch [::events/set-active-panel :contact-panel]))
 
+  (defroute "/contact/create" {:keys [query-params]}
+    (re-frame/dispatch [::events/send-contact-form query-params]))
   ;; --------------------
   (hook-browser-navigation!))
 

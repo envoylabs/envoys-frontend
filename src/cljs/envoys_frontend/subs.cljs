@@ -21,3 +21,18 @@
  ::loading?
  (fn [db _]
    (:loading? db)))
+
+(re-frame/reg-sub
+ ::email-field
+ (fn [db _]
+   (:email-field db)))
+
+(re-frame/reg-sub
+ ::message-field
+ (fn [db _]
+   (:message-field db)))
+
+(re-frame/reg-sub
+ ::robots-field
+ (fn [db _]
+   (:robots-field db)))

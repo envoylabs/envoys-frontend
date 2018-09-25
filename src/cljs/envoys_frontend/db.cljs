@@ -2,4 +2,8 @@
 
 (def default-db
   {:hero-text "Loading..."
-   :loading? true})
+   :loading? true
+   :email-field ""
+   :message-field ""
+   :robots-field ""
+   })
