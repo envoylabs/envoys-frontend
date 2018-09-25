@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/the-frey/envoys-frontend.svg?branch=master)](https://travis-ci.org/the-frey/envoys-frontend)
+[![Build Status](https://travis-ci.org/envoylabs/envoys-frontend.svg?branch=master)](https://travis-ci.org/envoylabs/envoys-frontend)
 
 # envoys-frontend
 
