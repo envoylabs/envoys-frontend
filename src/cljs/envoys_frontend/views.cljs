@@ -83,7 +83,8 @@
           :target "_blank"}
       "Github"]]
     [:p
-     "Copyright 2018"]]])
+     "Copyright 2020"]
+    [:p "Registered in England and Wales with Company No 12557870"]]])
 
 ;; home
 (defn home-panel []
