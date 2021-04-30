@@ -83,7 +83,7 @@
           :target "_blank"}
       "Github"]]
     [:p
-     "Copyright 2020"]
+     "Copyright 2021"]
     [:p "Registered in England and Wales with Company No 12557870"]]])
 
 ;; home
