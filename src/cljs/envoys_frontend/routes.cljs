@@ -28,7 +28,7 @@
     (re-frame/dispatch [::events/set-active-panel :about-panel]))
 
   (defroute "/blog" []
-    (set! (.. js/window -location -href) "https://envoylabs.github.io/blog/")
+    (set! (.. js/window -location -replace) "https://envoylabs.github.io/blog/")
     ;;(re-frame/dispatch [::events/set-active-panel :blog-panel])
     )
 
