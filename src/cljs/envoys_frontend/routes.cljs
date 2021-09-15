@@ -27,6 +27,9 @@
   (defroute "/about" []
     (re-frame/dispatch [::events/set-active-panel :about-panel]))
 
+  (defroute "/validators" []
+    (re-frame/dispatch [::events/set-active-panel :validators-panel]))
+  
   (defroute "/blog" []
     (set! (.. js/window -location -replace) "https://envoylabs.github.io/blog/")
     ;;(re-frame/dispatch [::events/set-active-panel :blog-panel])
