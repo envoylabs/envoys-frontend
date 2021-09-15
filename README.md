@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/envoylabs/envoys-frontend.svg?branch=master)](https://travis-ci.org/envoylabs/envoys-frontend)
+![Build and Test](https://github.com/envoylabs/envoys-frontend/actions/workflows/build_and_test.yml/badge.svg)
 
 # envoys-frontend
 
