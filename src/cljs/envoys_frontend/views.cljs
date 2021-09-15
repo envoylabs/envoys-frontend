@@ -120,11 +120,11 @@
     [:p {:style {:font-weight "lighter"}}
      "Envoys run several Proof-of-Stake Validator nodes for blockchains in the Cosmos ecosystem. These run under the Needlecast moniker."]
     [:p
-     "We currently are due validate the Juno and Stargaze networks on launch."]
+     "We currently are due to validate the Juno and Stargaze networks on launch."]
     [:p
      "We offer fair fees and best-in-class deployment and operational practices, born of our years of experience delivering business-critical applications at enterprise scale."]
     [:a {:href "https://keybase.io/needlecast"}
-     "Needlecast on Keybase"]]
+     "View Needlecast on Keybase"]]
    (footer)])
 
 
