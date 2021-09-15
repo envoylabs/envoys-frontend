@@ -7,6 +7,7 @@
 (def expected-nav-data
   [[:li {:class [""]} [:a {:href "#/"} "HOME"]]
    [:li {:class ["active"]} [:a {:href "#/about"} "ABOUT"]]
+   [:li {:class [""]} [:a {:href "#/validators"} "VALIDATORS"]]
    [:li {:class [""]} [:a {:href "#/blog"} "BLOG"]]
    [:li {:class [""]} [:a {:href "#/contact"} "CONTACT"]]])
 
@@ -44,7 +45,7 @@
       (is (= generated-nav
              expected-nav-data))
       (is (= (count generated-nav)
-             4)))))
+             5)))))
 
 (deftest hero-container-test
   (testing "hero container"
