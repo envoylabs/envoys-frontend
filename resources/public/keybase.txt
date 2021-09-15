@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/needlecast
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://envoys.io
+  * I am needlecast (https://keybase.io/needlecast) on keybase.
+  * I have a public key ASCh1F5l8PjG00_D50W6iE4uZkFv1BVGq2crtnTFZIy6qQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120a1d45e65f0f8c6d34fc3e745ba884e2e66416fd41546ab672bb674c5648cbaa90a",
+      "host": "keybase.io",
+      "kid": "0120a1d45e65f0f8c6d34fc3e745ba884e2e66416fd41546ab672bb674c5648cbaa90a",
+      "uid": "c3d1e6e65fe7c3212c5d137d5bbe9219",
+      "username": "needlecast"
+    },
+    "merkle_root": {
+      "ctime": 1631713295,
+      "hash": "23ac35f4bd7a7dd1c5b27ac51f3e7da531930adf8476f3b30c269254c80d512de40917e189c329cbe966eb282b12bde638d145ef627be8dd269f2793f87a9eab",
+      "hash_meta": "d1b027bb0a950ac6bcfe1fe6dbf26a133f90b85987a4cd8b436a2bc813299720",
+      "seqno": 20773172
+    },
+    "service": {
+      "entropy": "iiI20hIaP1Wku7XCP2+S1eDF",
+      "hostname": "envoys.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.7.0"
+  },
+  "ctime": 1631713335,
+  "expire_in": 504576000,
+  "prev": "673ca7bfc40039cc4abbb1090fe3e6c2603e589a0c12e35382ece0d9755e40e4",
+  "seqno": 10,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgodReZfD4xtNPw+dFuohOLmZBb9QVRqtnK7Z0xWSMuqkKp3BheWxvYWTESpcCCsQgZzynv8QAOcxKu7EJD+PmwmA+WJoMEuNTguzg2XVeQOTEIC3Qm6poiHy9zhdzoi/Qp5HsM5ZmakNY2y5TgN6rLJtGAgHCo3NpZ8RAHx5LSFASdPwaaN5X1Yb686hoQfRSYlBNmJgEKzTEaRO2gr9eppA5EujPdUoJNicYiV5FcXbixyyv2NX69vl7DqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIHE0mxBcaf/+XxRFbLSWwWRVQ+TeV/WMoX00pqDh9jlro3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/needlecast
+
+==================================================================
