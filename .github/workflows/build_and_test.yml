@@ -1,0 +1,56 @@
+name: Build and push
+
+on: [push]
+
+jobs:
+
+  clojure:
+
+    # strategy:
+    #   matrix:
+    #     os: [ubuntu-latest, macOS-latest, windows-latest]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - id: install-aws-cli
+        uses: unfor19/install-aws-cli-action@v1
+      - run: aws --version
+        shell: bash
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Prepare java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+
+      - name: Install clojure tools
+        uses: DeLaGuardo/setup-clojure@3.5
+        with:
+          # Install just one or all simultaneously
+          cli: 1.10.1.693 # Clojure CLI based on tools.deps
+          lein: 2.9.1     # or use 'latest' to always provision latest version of leiningen
+
+      # - name: Execute clojure code on Linux and MacOS
+      #   if: ${{ matrix.os != 'windows-latest' }}
+      #   run: clojure -e "(+ 1 1)"
+      #   shell: bash
+        
+      - name: Get leiningen version
+        run: lein doo phantom test once
+
+      # - name: Install AWS CLI
+      #   run: pip install awscli --upgrade --user
+
+      - name: Set permissions
+        run: chmod a+x deploy.sh
+
+      - name: Deploy
+        env:
+          AWS_ACCESS_TOKEN: ${{ secrets.AWS_ACCESS_TOKEN }}
+          AWS_SECRET_TOKEN: ${{ secrets.AWS_SECRET_TOKEN }}
+        run: ./deploy.sh
