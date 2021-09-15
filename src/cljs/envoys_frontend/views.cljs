@@ -125,10 +125,13 @@
      "We offer fair fees and best-in-class deployment and operational practices, born of our years of experience delivering business-critical applications at enterprise scale."]
     [:p "We also make tutorial videos focussed on Validating and writing Smart Contracts using CosmWasm. They can be found "
      [:a {:href "https://www.youtube.com/channel/UCrb3W9f3tP8d3XFyP7K9zrg"
-          :target "_blank"}
-      "here."]]
+          :target "_blank"
+          :style {"color" "#fd5605"}}
+      "here"]
+     "."]
     [:a {:href "https://keybase.io/needlecast"
-         :target "_blank"}
+         :target "_blank"
+         :style {"color" "#fd5605"}}
      "View Needlecast on Keybase"]]
    (footer)])
 
