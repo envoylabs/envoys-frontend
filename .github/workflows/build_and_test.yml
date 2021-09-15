@@ -46,7 +46,7 @@ jobs:
       #   run: lein cljsbuild once min
 
       - name: Deploy
-      - uses: jakejarvis/s3-sync-action@master
+        uses: jakejarvis/s3-sync-action@master
         with:
           args: --debug
         env:
