@@ -39,9 +39,6 @@ jobs:
       - name: Run test suite
         run: lein doo phantom test once
 
-      # - name: Lein build
-      #   run: lein build
-
       - name: Lein build
         run: lein cljsbuild once min
 
@@ -55,12 +52,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_TOKEN }}
           AWS_REGION: 'eu-west-1'   # optional: defaults to us-east-1
           SOURCE_DIR: 'resources/public/'      # optional: defaults to entire repository
-
-      # - name: Invalidate cloudfront cache
-      #   env:
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_TOKEN }}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_TOKEN }}
-      #   run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRO }} --paths "/*" --debug
 
       - name: Invalidate cloudfront cache
         uses: chetan/invalidate-cloudfront-action@master

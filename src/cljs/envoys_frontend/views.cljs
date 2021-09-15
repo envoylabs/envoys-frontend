@@ -115,7 +115,7 @@
 (defn validators-panel []
   [:div 
    (nav)
-   (hero-container {:title "Validators"})
+   (hero-container {:title "Needlecast Validators"})
    [:div.inner {:style {"padding-top" "5px"}}
     [:p {:style {:font-weight "lighter"}}
      "Envoys run several Proof-of-Stake Validator nodes for blockchains in the Cosmos ecosystem. These run under the Needlecast moniker."]
