@@ -123,7 +123,12 @@
      "We currently are due to validate the Juno and Stargaze networks on launch."]
     [:p
      "We offer fair fees and best-in-class deployment and operational practices, born of our years of experience delivering business-critical applications at enterprise scale."]
-    [:a {:href "https://keybase.io/needlecast"}
+    [:p "We also make tutorial videos focussed on Validating and writing Smart Contracts using CosmWasm. They can be found "
+     [:a {:href "https://www.youtube.com/channel/UCrb3W9f3tP8d3XFyP7K9zrg"
+          :target "_blank"}
+      "here."]]
+    [:a {:href "https://keybase.io/needlecast"
+         :target "_blank"}
      "View Needlecast on Keybase"]]
    (footer)])
 
