@@ -56,8 +56,5 @@ jobs:
           AWS_REGION: 'eu-west-1'   # optional: defaults to us-east-1
           SOURCE_DIR: 'resources/public/'      # optional: defaults to entire repository
 
-      # - name: Deploy
-      #   env:
-      #     AWS_ACCESS_TOKEN: ${{ secrets.AWS_ACCESS_TOKEN }}
-      #     AWS_SECRET_TOKEN: ${{ secrets.AWS_SECRET_TOKEN }}
-      #   run: aws s3 sync resources/public/ s3://envoys-frontend --debug
+      - name: Invalidate cloudfront cache
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRO }} --paths "/*"
