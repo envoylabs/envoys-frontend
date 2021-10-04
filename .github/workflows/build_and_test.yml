@@ -37,12 +37,17 @@ jobs:
           lein: 2.9.1     # or use 'latest' to always provision latest version of leiningen
 
       - name: Run test suite
-        run: lein doo phantom test once
+        id: test
+        run: |
+          lein doo phantom test once
+          echo ::set-output name=exit_code::$?
 
       - name: Lein build
+        if: steps.test.outputs.exit_code == 0
         run: lein cljsbuild once min
 
       - name: Deploy
+        if: steps.test.outputs.exit_code == 0
         uses: jakejarvis/s3-sync-action@master
         with:
           args: --follow-symlinks # --debug
@@ -54,6 +59,7 @@ jobs:
           SOURCE_DIR: 'resources/public/'      # optional: defaults to entire repository
 
       - name: Invalidate cloudfront cache
+        if: steps.test.outputs.exit_code == 0
         uses: chetan/invalidate-cloudfront-action@master
         env:
           DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRO }}

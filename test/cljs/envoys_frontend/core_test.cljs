@@ -8,7 +8,7 @@
   [[:li {:class [""]} [:a {:href "#/"} "HOME"]]
    [:li {:class ["active"]} [:a {:href "#/about"} "ABOUT"]]
    [:li {:class [""]} [:a {:href "#/validators"} "VALIDATORS"]]
-   [:li {:class [""]} [:a {:href "#/blog"} "BLOG"]]
+   [:li {:class [""]} [:a {:href "https://envoylabs.github.io/blog/"} "BLOG"]]
    [:li {:class [""]} [:a {:href "#/contact"} "CONTACT"]]])
 
 (def expected-hero-data
