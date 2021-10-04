@@ -36,16 +36,16 @@
               (let [pane-name (string/replace (name nav-item)
                                               #"\-panel"
                                               "")
-                    path (if (= pane-name
-                                "home")
-                           ""
-                           pane-name)]
+                    base-route "#/"
+                    path (case pane-name
+                           "home" base-route
+                           "blog" "https://envoylabs.github.io/blog/"
+                           (-> base-route (str pane-name)))]
                 [:li {:class [(if (= current-pane
                                      nav-item)
                                 "active"
                                 "")]}
-                 [:a {:href (-> "#/"
-                                (str path))}
+                 [:a {:href path}
                   (string/upper-case pane-name)]])))))
 
 (defn nav []
