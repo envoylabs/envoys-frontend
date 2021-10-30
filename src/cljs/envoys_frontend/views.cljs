@@ -120,7 +120,15 @@
     [:p {:style {:font-weight "lighter"}}
      "Envoys run several Proof-of-Stake Validator nodes for blockchains in the Cosmos ecosystem. These run under the Needlecast moniker."]
     [:p
-     "We validate the Juno network, and will be validating the Stargaze network on launch."]
+     "We validate the Juno and Stargaze networks, and plan to add more soon."]
+    [:p [:a {:href "https://ping.pub/juno/staking/junovaloper17dn5e2n6w60pzyxeq79apr05r6jzfw7wgq3m07"
+             :target "_blank"
+             :style {"color" "#fd5605"}}
+         "Stake on Juno"]]
+    [:p [:a {:href "#"
+             :target "_blank"
+             :style {"color" "#fd5605"}}
+         "Stake on Stargaze"]]
     [:p
      "We offer fair fees and best-in-class deployment and operational practices, born of our years of experience delivering business-critical applications at enterprise scale."]
     [:p "We also make tutorial videos focussed on Validating and writing Smart Contracts using CosmWasm. They can be found "
