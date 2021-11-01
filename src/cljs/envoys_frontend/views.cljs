@@ -121,11 +121,11 @@
      "Envoys run several Proof-of-Stake Validator nodes for blockchains in the Cosmos ecosystem. These run under the Needlecast moniker."]
     [:p
      "We validate the Juno and Stargaze networks, and plan to add more soon."]
-    [:p [:a {:href "https://ping.pub/juno/staking/junovaloper17dn5e2n6w60pzyxeq79apr05r6jzfw7wgq3m07"
+    [:p [:a {:href "https://www.mintscan.io/juno/validators/junovaloper17dn5e2n6w60pzyxeq79apr05r6jzfw7wgq3m07"
              :target "_blank"
              :style {"color" "#fd5605"}}
          "Stake on Juno"]]
-    [:p [:a {:href "#"
+    [:p [:a {:href "https://www.mintscan.io/stargaze/validators/starsvaloper17dn5e2n6w60pzyxeq79apr05r6jzfw7w7d8xrj"
              :target "_blank"
              :style {"color" "#fd5605"}}
          "Stake on Stargaze"]]
