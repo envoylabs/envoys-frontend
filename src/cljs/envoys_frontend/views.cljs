@@ -140,7 +140,9 @@
     [:a {:href "https://keybase.io/needlecast"
          :target "_blank"
          :style {"color" "#fd5605"}}
-     "View Needlecast on Keybase"]]
+     "View Needlecast on Keybase"]
+
+    [:p "We contribute to the core development of the Juno Network, and are a member of InterWasm."]]
    (footer)])
 
 
